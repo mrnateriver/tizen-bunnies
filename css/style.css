@@ -1,0 +1,417 @@
+/*
+* Copyright (c) 2016 Evgenii Dobrovidov
+* This file is part of "Bunnies".
+*
+* "Bunnies" is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* "Bunnies" is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with "Bunnies".  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+* {
+    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+    
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	
+	outline: none;
+
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+    height: 100%;
+    width: 100%;
+}
+
+.no-select {
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.contents {	
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.contents .main-menu {
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+	
+	position: absolute;
+	height: 100%;	
+	width: 100%;
+	left: -100%;
+	top: 0;
+	transition: left 0.5s;
+}
+.contents .main-menu.active {
+	left: 0;
+}
+
+.contents .main-menu img.some-bunny {
+	position: absolute;
+	left: -25px;
+	bottom: -43px;
+}
+
+.contents .main-menu > span {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	height: 64px;
+	position: relative;
+	z-index: 10;
+}
+.contents.big .main-menu > span {
+	margin: 10px auto;
+}
+
+.contents .main-menu > span.new-game {
+	width: 256px;
+	background: url('../img/newgame.png') left top no-repeat;
+}
+.contents .main-menu > span.new-game:active {
+	background: transparent url('../img/newgame_pressed.png') left top no-repeat !important;
+}
+.contents .main-menu > span.highscore {
+	width: 256px;
+	background: url('../img/highscore.png') left top no-repeat;
+}
+.contents .main-menu > span.highscore:active {
+	background: transparent url('../img/highscore_pressed.png') left top no-repeat !important;
+}
+.contents .main-menu > span.help {
+	width: 320px;
+	background: url('../img/help.png') left top no-repeat;
+}
+.contents .main-menu > span.help:active {
+	background: transparent url('../img/help_pressed.png') left top no-repeat !important;
+}
+.contents .main-menu > span.exit {
+	width: 128px;
+	background: url('../img/exit.png') left top no-repeat;
+}
+.contents .main-menu > span.exit:active {
+	background: transparent url('../img/exit_pressed.png') left top no-repeat !important;
+}
+
+.contents.ru .main-menu > span.new-game {
+	width: 285px;
+	background: url('../img/newgame_ru.png') left top no-repeat;
+}
+.contents.ru .main-menu > span.new-game:active {
+	background: transparent url('../img/newgame_pressed_ru.png') left top no-repeat !important;
+}
+.contents.ru .main-menu > span.highscore {
+	width: 150px;
+	background: url('../img/highscore_ru.png') left top no-repeat;
+}
+.contents.ru .main-menu > span.highscore:active {
+	background: transparent url('../img/highscore_pressed_ru.png') left top no-repeat !important;
+}
+.contents.ru .main-menu > span.help {
+	width: 270px;
+	background: url('../img/help_ru.png') left top no-repeat;
+}
+.contents.ru .main-menu > span.help:active {
+	background: transparent url('../img/help_pressed_ru.png') left top no-repeat !important;
+}
+.contents.ru .main-menu > span.exit {
+	width: 165px;
+	background: url('../img/exit_ru.png') left top no-repeat;
+}
+.contents.ru .main-menu > span.exit:active {
+	background: transparent url('../img/exit_pressed_ru.png') left top no-repeat !important;
+}
+
+.contents .score-screen {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 20px 20px;
+	transition: left 0.5s;
+	left: 100%;
+	top: 0;
+	color: white;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+}
+.contents .score-screen.active {
+	left: 0;
+}
+.contents .score-screen ul.highscore {
+	color: #ede7c0;
+	font-weight: bold;
+	font-size: 180%;
+	text-align: center;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.contents.big .score-screen ul.highscore {
+	font-size: 250%;
+}
+.contents .score-screen ul.highscore li {
+	margin: 6px 0;
+}
+.contents .score-screen ul.highscore li:first-child {
+	background: url('../img/gold_star.png') left center no-repeat;
+}
+.contents .score-screen ul.highscore li:nth-child(2) {
+	background: url('../img/silver_star.png') left center no-repeat;
+}
+.contents .score-screen ul.highscore li:nth-child(3) {
+	background: url('../img/bronze_star.png') left center no-repeat;
+}
+.contents .score-screen > span.back {
+	display: block;
+	text-align: center;
+	margin: auto auto 0 auto;
+	height: 64px;
+	width: 136px;
+	background: url('../img/back.png') left top no-repeat;
+}
+.contents .score-screen > span.back:active {
+	background: transparent url('../img/back_pressed.png') left top no-repeat !important;
+}
+.contents.ru .score-screen > span.back {
+	width: 165px;
+	background: url('../img/back_ru.png') left top no-repeat;
+}
+.contents.ru .score-screen > span.back:active {
+	background: transparent url('../img/back_pressed_ru.png') left top no-repeat !important;
+}
+
+.contents .help-screen {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 20px 20px 0 20px;
+	transition: left 0.5s;
+	left: 100%;
+	top: 0;
+	color: white;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+}
+.contents .help-screen.active {
+	left: 0;
+}
+.contents .help-screen p {
+	font-size: 160%;
+	text-align: center;
+	font-weight: bold;
+	color: #ede7c0;
+	margin: 0;
+}
+.contents.ru .help-screen p {
+	font-size: 150%;
+}
+.contents.big .help-screen p {
+	font-size: 240%;
+}
+.contents.big.ru .help-screen p {
+	font-size: 200%;
+}
+.contents .help-screen > span.back {
+	display: block;
+	text-align: center;
+	margin: auto auto 10px auto;
+	height: 64px;
+	width: 136px;
+	background: url('../img/back.png') left top no-repeat;
+}
+.contents .help-screen > span.back:active {
+	background: transparent url('../img/back_pressed.png') left top no-repeat !important;
+}
+.contents.ru .help-screen > span.back {
+	width: 165px;
+	background: url('../img/back_ru.png') left top no-repeat;
+}
+.contents.ru .help-screen > span.back:active {
+	background: transparent url('../img/back_pressed_ru.png') left top no-repeat !important;
+}
+
+.contents .playground {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	transition: left 0.5s;
+	left: 100%;
+	top: 0;
+}
+/*this one is needed for Gear S version*/
+.contents .playground .wrapper {
+	padding: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.contents.big .playground .wrapper {
+	padding: 40px 0 70px 10px;
+}
+.contents .playground.active {
+	left: 0;
+}
+.contents .playground .info {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	top: 0;
+	transition: top 0.5s;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 10;
+}
+.contents .playground .info.transparent {
+	background: transparent;
+}
+.contents .playground .info.hidden {
+	top: 100%;
+}
+.contents .playground .info.center {
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-justify-content: center;
+}
+.contents .playground .info img {
+	width: auto;
+	margin: 0 auto;
+}
+.contents .playground .info img.gameover {
+	margin-bottom: 20px;
+}
+.contents .playground .info div.score {
+	text-align: center;
+}
+.contents .playground .info img.score-label {
+
+}
+.contents .playground .info span.score {
+	font-size: 200%;
+	font-weight: bold;
+	color: #ede7c0;
+	display: block;
+}
+.contents .playground .row {
+	height: 33.333333%;
+	width: 100%;
+}
+.contents .playground .slot {
+	position: relative;
+	float: left;
+	width: 33.333333%;
+	height: 100%;
+	overflow: hidden;
+}
+.contents .playground .slot .hole {
+
+}
+.contents .playground .slot .hole.top {
+	width: 105px;
+	height: 22px;
+	position: absolute;
+	left: 0;
+	bottom: 25px;
+	z-index: 3;
+	background: url('../img/hole_top.png') left top no-repeat;
+}
+.contents .playground .slot .hole.bottom {
+	width: 105px;
+	height: 25px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 5;
+	background: url('../img/hole_bottom.png') left top no-repeat;
+}
+.contents .playground .slot .bunny {
+	background: url('../img/bunny_playable.gif') left top no-repeat;
+	width: 128px;
+	height: 128px;
+	position: absolute;
+	z-index: 4;
+	bottom: -110px;
+	left: -10px;
+	transition: bottom 0.5s;
+}
+.contents .playground .slot .bunny.popped, .contents .playground .slot .bear.popped {
+	bottom: -20px;
+}
+.contents .playground .slot .bunny.scored {
+	background: url('../img/bunny_scored.gif') left top no-repeat;
+	transition: bottom 0.2s ease-in-out;
+}
+.contents .playground .slot .bear {
+	background: url('../img/bear.png') left top no-repeat;
+	width: 128px;
+	height: 128px;
+	position: absolute;
+	z-index: 4;
+	bottom: -110px;
+	left: -10px;
+	transition: bottom 0.5s;
+}
+.contents .playground .slot .bear.scored {
+	background: url('../img/bear_scored.png') left top no-repeat;
+	transition: bottom 0.2s ease-in-out;
+}
+.contents .playground .slot .score {
+	width: 69px;
+	height: 35px;
+	position: absolute;
+	transition: all 0.2s;
+	opacity: 0;
+	top: 50px;
+	left: 17px;
+	z-index: 10;
+}
+.contents .playground .slot .score.pop {
+	top: 15px;
+	opacity: 1;
+}
+.contents .playground .slot .score.fade {
+	opacity: 0;
+}
+.contents .playground .slot .plus.score {
+	background: url('../img/score_plus.png') left top no-repeat;
+}
+.contents .playground .slot .minus.score {
+	background: url('../img/score_minus.png') left top no-repeat;
+}
+.contents .playground .slot .live.score {
+	width: 71px;
+	height: 38px;
+	left: 16px;
+	background: url('../img/live_minus.png') left top no-repeat;
+}
+.contents .playground .slot .live.score.pop {
+	
+}

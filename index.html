@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<!--
+	/*
+	* Copyright (c) 2016 Evgenii Dobrovidov
+	* This file is part of "Bunnies".
+	*
+	* "Bunnies" is free software: you can redistribute it and/or modify
+	* it under the terms of the GNU General Public License as published by
+	* the Free Software Foundation, either version 3 of the License, or
+	* (at your option) any later version.
+	*
+	* "Bunnies" is distributed in the hope that it will be useful,
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of
+	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	* GNU General Public License for more details.
+	*
+	* You should have received a copy of the GNU General Public License
+	* along with "Bunnies".  If not, see <http://www.gnu.org/licenses/>.
+	*/
+	-->
+	<head>
+	    <meta charset="utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	    <meta name="description" content="Some Bunnies" />
+	
+	    <title>Some Bunnies</title>
+	
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    <script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="contents">
+			<div class="active main-menu">
+				<img class="some-bunny" src="img/bunny.gif">
+				
+				<span class="new-game no-select"></span>
+				<span class="highscore no-select"></span>
+				<span class="help no-select"></span>
+				<span class="exit no-select"></span>
+			</div>
+			<div class="score-screen">
+				<ul class="highscore">
+					<li>1000</li>
+					<li>900</li>
+					<li>800</li>
+					<li>700</li>
+					<li>600</li>
+				</ul>
+				<span class="back"></span>
+			</div>
+			<div class="help-screen">
+				<p>Tap on a bunny to score. Do not tap on a bear or you'll lose score. You lose the game when you miss 10 bunnies. That's all!</p>
+				<span class="back"></span>
+			</div>
+			<div class="playground">
+				<div class="wrapper">
+					<div class="info"></div>
+					<div class="row">
+						<div class="slot" id="slot1">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+						<div class="slot" id="slot2">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+						<div class="slot" id="slot3">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="slot" id="slot4">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+						<div class="slot" id="slot5">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+						<div class="slot" id="slot6">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="slot" id="slot7">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+						<div class="slot" id="slot8">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+						<div class="slot" id="slot9">
+							<div class="hole top"></div>
+							<div class="hole bottom"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/main.js"></script>
+		<script src="language.js"></script>
+	</body>
+</html>
